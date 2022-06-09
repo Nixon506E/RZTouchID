@@ -16,7 +16,6 @@ let package = Package(
     targets: [
         .target(
             name: "RZTouchID",
-            dependencies: [],
             path: "RZTouchID"),
     ]
 )
