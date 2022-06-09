@@ -104,12 +104,12 @@ NSString* const kRZTouchIDErrorDomain = @"com.raizlabs.touchID";
         }
         
         // we want the operation to fail if there is an item which needs authentication so we will use
-        // kSecUseNoAuthenticationUI
+        // kSecUseAuthenticationUI
         NSMutableDictionary *attributes = [@{
                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
                          (__bridge id)kSecAttrService: [self serviceNameForIdentifier:identifier],
                          (__bridge id)kSecValueData: [password dataUsingEncoding:NSUTF8StringEncoding],
-                         (__bridge id)kSecUseNoAuthenticationUI: @NO
+                         (__bridge id)kSecUseAuthenticationUI: (__bridge id)kSecUseAuthenticationUIFail
                          } mutableCopy];
 
         if ( self.touchIDMode == RZTouchIDModeBiometricKeychain ) {
