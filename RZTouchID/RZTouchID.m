@@ -47,7 +47,6 @@ NSString* const kRZTouchIDErrorDomain = @"com.raizlabs.touchID";
 {
     BOOL available = NO;
     
-#if !TARGET_IPHONE_SIMULATOR
     Class contextClass = [LAContext class];
     if ( contextClass != nil ) {
         //User a new context for each check otherwise you may get a cached response.
@@ -58,7 +57,6 @@ NSString* const kRZTouchIDErrorDomain = @"com.raizlabs.touchID";
         BOOL biometricsAvailable = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
         available = (error == nil && biometricsAvailable);
     }
-#endif
     
     return available;
 }
